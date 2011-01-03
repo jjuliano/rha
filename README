@@ -47,6 +47,11 @@ Usage:
       authkeys_file.close
       haresources_file.close
 
+      heartbeat = RhaDaemon.new
+      heartbeat.path_to_heartbeat = "/etc/init.d/heartbeat"
+      heartbeat.debug = "3"
+      heartbeat.reload
+
 ha.cf:
 
       use_logd on 

@@ -67,7 +67,7 @@
     #
     # Kill (stop) heartbeat.
     #
-    def reload
+    def stop
       tmp = Tempfile.new('tmp')
       command = option_string() + "-k " + " 2> " + tmp.path
       success = system(command)
