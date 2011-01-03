@@ -49,7 +49,7 @@ Usage:
 
       heartbeat = RhaDaemon.new
       heartbeat.path_to_heartbeat = "/etc/init.d/heartbeat"
-      heartbeat.debug = "3"
+      heartbeat.debug_level = "3"
       heartbeat.reload
 
 ha.cf:
