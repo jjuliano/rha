@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>RHA by jjuliano</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>RHA</h1>
+        <p>Rha - Linux Heartbeat High Availability Cluster API for Ruby</p>
+        <p class="view"><a href="https://github.com/jjuliano/rha">View the Project on GitHub <small>jjuliano/rha</small></a></p>
+        <ul>
+          <li><a href="https://github.com/jjuliano/rha/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jjuliano/rha/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jjuliano/rha">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="rha---heartbeat-high-availability-cluster-api-for-ruby" class="anchor" href="#rha---heartbeat-high-availability-cluster-api-for-ruby" aria-hidden="true"><span class="octicon octicon-link"></span></a>RHA - Heartbeat High Availability Cluster API for Ruby</h1>
+
+<p>Rha is a gem providing a ruby interface to Heartbeat High Availability Cluster.</p>
+
+<p>To install, type 'gem install rha'</p>
+
+<h3>
+<a id="why-rha" class="anchor" href="#why-rha" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why RHA?</h3>
+
+<p>RHA creates simple and small development tools that help you design,
+develop, deploy cloud infrastractures for your enterprise software systems.</p>
+
+<h4>
+<a id="rha-pro-a-commercial-supported-version-of-rha" class="anchor" href="#rha-pro-a-commercial-supported-version-of-rha" aria-hidden="true"><span class="octicon octicon-link"></span></a>RHA Pro: A Commercial, Supported Version of RHA</h4>
+
+<p>RHA Pro is a collection of useful functionality for the open source RHA library with priority support via Remote access or Skype from the author, new features in-demand, upgrades and lots more.</p>
+
+<p>Sales of RHA Pro also benefit the community by ensuring that RHA itself will remain well supported for the foreseeable future.</p>
+
+<h4>
+<a id="licensing" class="anchor" href="#licensing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Licensing</h4>
+
+<p>RHA is available under the terms of the GNU LGPLv3 license.</p>
+
+<p>In addition to its useful functionality, buying RHA Pro grants your organization a RHA Commercial License instead of the GNU LGPL, avoiding any legal issues your lawyers might raise. Please contact <a href="mailto:joelbryan.juliano@gmail.com">joelbryan.juliano@gmail.com</a> for further detail on licensing including options for embedding RHA Pro in your own products.</p>
+
+<h4>
+<a id="buy-rha-pro" class="anchor" href="#buy-rha-pro" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buy RHA Pro</h4>
+
+<p>Contact me via <a href="mailto:joelbryan.juliano@gmail.com">joelbryan.juliano@gmail.com</a>, and Pay via Paypal: <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=6DGJ9FMXUX6ZC">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=6DGJ9FMXUX6ZC</a></p>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage:</h3>
+
+<div class="highlight highlight-ruby"><pre>      <span class="pl-k">require</span> <span class="pl-s1"><span class="pl-pds">'</span>rubygems<span class="pl-pds">'</span></span>
+      <span class="pl-k">require</span> <span class="pl-s1"><span class="pl-pds">'</span>rha<span class="pl-pds">'</span></span>
+
+      ha_cf <span class="pl-k">=</span> <span class="pl-s3">RhaConfig</span>.<span class="pl-k">new</span>
+      ha_cf.use_logd <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>on<span class="pl-pds">"</span></span>
+      ha_cf.mcast <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>eth0 239.0.0.42 694 1 0<span class="pl-pds">"</span></span>
+      ha_cf.bcast <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>eth1<span class="pl-pds">"</span></span>
+      ha_cf.node <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>alice bob<span class="pl-pds">"</span></span>
+      ha_cf.keepalive <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>1000ms<span class="pl-pds">"</span></span>
+      ha_cf.deadtime <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>30000ms<span class="pl-pds">"</span></span>
+      ha_cf.realtime <span class="pl-k">=</span> <span class="pl-c1">true</span>
+      ha_cf.conn_logd_time <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>60<span class="pl-pds">"</span></span>
+      ha_cf.crm <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>false<span class="pl-pds">"</span></span>
+      ha_cf.compression <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>zlib<span class="pl-pds">"</span></span>
+      ha_cf.compression_threshold <span class="pl-k">=</span> <span class="pl-c1">2</span>
+
+      authkeys <span class="pl-k">=</span> <span class="pl-s3">RhaAuthkeys</span>.<span class="pl-k">new</span>
+      authkeys.auth(<span class="pl-c1">1</span>)
+      authkeys.add_md5(<span class="pl-c1">1</span>, <span class="pl-c1">1</span>, <span class="pl-s1"><span class="pl-pds">"</span>secret<span class="pl-pds">"</span></span>)
+      authkeys.add_sha1(<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-s1"><span class="pl-pds">"</span>secret<span class="pl-pds">"</span></span>)
+      authkeys.add_crc(<span class="pl-c1">1</span>, <span class="pl-c1">3</span>)
+
+      haresources <span class="pl-k">=</span> <span class="pl-s3">RhaResources</span>.<span class="pl-k">new</span>
+      haresources.preferred_node <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>alice<span class="pl-pds">"</span></span>
+      haresources.resource_name <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>192.168.1.10<span class="pl-pds">"</span></span>
+      haresources.script_name <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>sshd nginx mysql<span class="pl-pds">"</span></span>
+
+      ha_cf_file <span class="pl-k">=</span> <span class="pl-s3">File</span>.<span class="pl-k">new</span>(<span class="pl-s1"><span class="pl-pds">"</span>ha.cf<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>w+<span class="pl-pds">"</span></span>)
+      ha_cf_file.puts(ha_cf.config)
+
+      authkeys_file <span class="pl-k">=</span> <span class="pl-s3">File</span>.<span class="pl-k">new</span>(<span class="pl-s1"><span class="pl-pds">"</span>authkeys<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>w+<span class="pl-pds">"</span></span>)
+      authkeys_file.puts(authkeys.config)
+
+      haresources_file <span class="pl-k">=</span> <span class="pl-s3">File</span>.<span class="pl-k">new</span>(<span class="pl-s1"><span class="pl-pds">"</span>haresources<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>w+<span class="pl-pds">"</span></span>)
+      haresources_file.puts(haresources.config)
+
+      ha_cf_file.close
+      authkeys_file.close
+      haresources_file.close
+
+      heartbeat <span class="pl-k">=</span> <span class="pl-s3">RhaDaemon</span>.<span class="pl-k">new</span>
+      heartbeat.path_to_heartbeat <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>/etc/init.d/heartbeat<span class="pl-pds">"</span></span>
+      heartbeat.debug_level <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>
+      heartbeat.reload</pre></div>
+
+<h4>
+<a id="hacf" class="anchor" href="#hacf" aria-hidden="true"><span class="octicon octicon-link"></span></a>ha.cf:</h4>
+
+<div class="highlight highlight-ruby"><pre>      use_logd on
+      bcast eth1
+      compression zlib
+      compression_threshold <span class="pl-c1">2</span>
+      conn_logd_time <span class="pl-c1">60</span>
+      crm <span class="pl-c1">false</span>
+      deadtime 30000ms
+      keepalive 1000ms
+      mcast eth0 <span class="pl-c1">239.0</span>.<span class="pl-c1">0.42</span> <span class="pl-c1">694</span> <span class="pl-c1">1</span> <span class="pl-c1">0</span>
+      node alice bob
+      realtime <span class="pl-c1">true</span></pre></div>
+
+<h4>
+<a id="authkeys" class="anchor" href="#authkeys" aria-hidden="true"><span class="octicon octicon-link"></span></a>authkeys:</h4>
+
+<div class="highlight highlight-ruby"><pre>      auth <span class="pl-c1">1</span>
+      <span class="pl-c1">3</span> crc
+      <span class="pl-c1">2</span> sha1 secret
+      <span class="pl-c1">1</span> md5 secret</pre></div>
+
+<h4>
+<a id="haresources" class="anchor" href="#haresources" aria-hidden="true"><span class="octicon octicon-link"></span></a>haresources:</h4>
+
+<div class="highlight highlight-ruby"><pre>      alice <span class="pl-c1">192.168</span>.<span class="pl-c1">1.10</span> sshd nginx mysql</pre></div>
+
+<h3>
+<a id="donations" class="anchor" href="#donations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Donations</h3>
+
+<p>Please support independent cloud computing toolkits, also money donated to the project will benefit the community by ensuring that RHA itself will remain well supported for the foreseeable future. To Donate, please visit: <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KT9CY4T7BYDM4">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KT9CY4T7BYDM4</a></p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/jjuliano">jjuliano</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-57800038-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
