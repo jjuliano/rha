@@ -1,10 +1,12 @@
+require_relative 'lib/rha/version'
+
 Gem::Specification.new do |s|
   s.name = %q{rha}
-  s.version = "0.1.1"
-  s.date = %q{2010-12-31}
+  s.version = Rha::VERSION::STRING
+  s.date = Time.now
   s.authors = ["Joel Bryan Juliano"]
   s.email = %q{joelbryan.juliano@gmail.com}
-  s.summary = %q{A gem providing a ruby interface to Heartbeat High Availability Cluster}
+  s.summary = %q{Heartbeat High Availability Cluster API for Ruby}
   s.homepage = %q{http://github.com/jjuliano/rha}
   s.description = %q{A gem providing a ruby interface to Heartbeat High Availability Cluster.}
   s.files = [ "README", "Changelog", "LICENSE", "setup.rb",
