@@ -12,5 +12,6 @@ Gem::Specification.new do |s|
               "test/test_rha.rb", "test/test_helper.rb",
               "lib/rha/daemon.rb", "lib/rha/ha_cf.rb",
               "lib/rha/haresources.rb", "lib/rha/authkeys.rb"]
+  s.license = "GNU LGPLv3"
 end
 
